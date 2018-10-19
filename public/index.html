@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+  <link rel="modulepreload" href="./js/main.js">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -41,15 +42,15 @@
 
       <div class="dropdown-nav">
         <a class="link" onclick="openNav()">&#9776;</a>
-        <a class="link" href="/">Home</a>
+        <a class="link" onclick="window.updateLeftColumnDom('/')">Home</a>
         <div class="dropdown">
           <a class="link">Primes
             <i class="link fa fa-caret-down"></i>
           </a>
           <div class="dropdown-content">
-            <a href="/primality" onclick="updateLeftColumnDom()">Introduction</a>
-            <a href="PrimeFact.html">Prime factors</a>
-            <a href="RSA.html">RSA Encryption</a>
+            <a onclick="window.updateLeftColumnDom('/primality')">Introduction</a>
+            <a onclick="window.updateLeftColumnDom('/primeFact')">Prime factors</a>
+            <a onclick="window.updateLeftColumnDom('/rsa')">RSA Encryption</a>
           </div>
         </div>    
         <div class="dropdown">
@@ -58,8 +59,8 @@
           </a>
           <div class="dropdown-content">
             <a href="welcome.html">Introduction</a>
-            <a href="ModularAddMulSub.html">Modulur arithmatic</a>
-            <a href="congo.html">Modulur congruency</a>
+            <a onclick="window.updateLeftColumnDom('/modularAddMulSub')">Modulur arithmatic</a>
+            <a onclick="window.updateLeftColumnDom('/congo')">Modulur congruency</a>
           </div>
         </div>
         <div class="dropdown">
@@ -67,7 +68,7 @@
             <i class="fa fa-caret-down"></i>
           </a>
           <div class="dropdown-content">
-            <a href="bubble.html">Bubble Sort</a>
+            <a onclick="window.updateLeftColumnDom('/bubble')">Bubble Sort</a>
           </div>
         </div>
       </div>
@@ -110,6 +111,7 @@
   <script type="module">
     import { updateLeftColumnDom, firstLoad } from "./js/main.js";
     firstLoad();
+    window.updateLeftColumnDom = updateLeftColumnDom;
   </script>
 </body>
 

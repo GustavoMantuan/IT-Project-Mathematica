@@ -2,19 +2,16 @@ import { FooterView } from "./views/FooterView.js";
 import { HomeView } from "./views/HomeView.js";
 import { StickyView } from "./views/StickyView.js";
 
-
-export let firstLoad = () => {
+export function firstLoad() {
   const StickyViewC = new StickyView(document.querySelector('.sticky'));
   StickyViewC.updateDom();
-  updateLeftColumnDom();
+  updateLeftColumnDom(window.location.pathname);
 }
 
-export let updateLeftColumnDom = () => {
-  let pathName = window.location.getPathName;
+export function updateLeftColumnDom(pathName = "") {
+  
+  history.pushState({}, pathName, window.location.origin + pathName);
+
   const HomeViewC = new HomeView(document.querySelector('.leftColumn'));
   HomeViewC.updateDom(pathName);
-
 }
-
-
-
